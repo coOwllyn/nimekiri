@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todos_repository/todos_repository.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import '../feature/ui/home/view/home_page.dart';
 import '../feature/ui/theme/theme.dart';
 
@@ -28,8 +30,8 @@ class AppView extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: FlutterTodosTheme.light,
       darkTheme: FlutterTodosTheme.dark,
-      // localizationsDelegates: AppLocalizations.localizationsDelegates,
-      // supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       home: const HomePage(),
     );
   }

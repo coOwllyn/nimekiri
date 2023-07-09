@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 class FlutterTodosTheme {
   static ThemeData get light {
     return ThemeData(
-      appBarTheme: const AppBarTheme(
-        color: Color(0xFF9575CD),
-      ),
       bottomAppBarTheme: const BottomAppBarTheme(
         color: Color(0xFF9575CD), //purple 4
       ),
@@ -20,9 +17,6 @@ class FlutterTodosTheme {
 
   static ThemeData get dark {
     return ThemeData(
-      appBarTheme: const AppBarTheme(
-        color: Color(0xFF5E35B1),
-      ),
       bottomAppBarTheme: const BottomAppBarTheme(
         color: Color(0xFF5E35B1), //purple 4
       ),
