@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:todo_bloc/feature/l10n/l10n.dart';
 
+import '../../widgets/todo_list_tile.dart';
 import '../bloc/todos_overview_bloc.dart';
 
 class TodosOverviewView extends StatelessWidget {
@@ -84,7 +85,28 @@ class TodosOverviewView extends StatelessWidget {
             return CupertinoScrollbar(
               child: ListView(
                 children: [
-                  for (final todo in state.filteredTodos) TodoListTile()
+                  for (final todo in state.filteredTodos)
+                    TodoListTile(
+                      todo: todo,
+                      onToggleCompleted: (isCompleted) {
+                        context.read<TodosOverviewBloc>().add(
+                              TodosOverviewTodoCompletionToggled(
+                                todo: todo,
+                                isCompleted: isCompleted,
+                              ),
+                            );
+                      },
+                      onDismissed: (_) {
+                        context
+                            .read<TodosOverviewBloc>()
+                            .add(TodosOverviewTodoDeleted(todo));
+                      },
+                      onTap: () {
+                        Navigator.of(context).push(
+                          EditTodoPage.route(initialTodo: todo),
+                        );
+                      },
+                    ),
                 ],
               ),
             );

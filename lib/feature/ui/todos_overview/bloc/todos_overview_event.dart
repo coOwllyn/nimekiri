@@ -26,8 +26,10 @@ final class TodosOverviewTodoCompletionToggled extends TodosOverviewEvent {
 
 final class TodosOverviewTodoDeleted extends TodosOverviewEvent {
   final Todo todo;
+  const TodosOverviewTodoDeleted(this.todo);
 
-  const TodosOverviewTodoDeleted({required this.todo});
+  @override
+  List<Object> get props => [todo];
 }
 
 final class TodosOverviewUndoDeletionRequested extends TodosOverviewEvent {
@@ -35,9 +37,9 @@ final class TodosOverviewUndoDeletionRequested extends TodosOverviewEvent {
 }
 
 class TodosOverviewFilterChanged extends TodosOverviewEvent {
-  final TodosViewFilter filter;
+  const TodosOverviewFilterChanged(this.filter);
 
-  const TodosOverviewFilterChanged({required this.filter});
+  final TodosViewFilter filter;
 
   @override
   List<Object> get props => [filter];
