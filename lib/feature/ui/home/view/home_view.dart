@@ -17,6 +17,7 @@ class HomeView extends StatelessWidget {
         // StatsPage(),
       ]),
       floatingActionButton: FloatingActionButton(
+        splashColor: Colors.deepPurple,
         elevation: 0,
         key: const Key('homeView_addTodo_floatingActionButton'),
         onPressed: () {},
