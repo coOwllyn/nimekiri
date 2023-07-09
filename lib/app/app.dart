@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todos_repository/todos_repository.dart';
 
-import '../feature/ui/home/view/home_view.dart';
+import '../feature/ui/home/view/home_page.dart';
 import '../feature/ui/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -25,11 +25,12 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: FlutterTodosTheme.light,
       darkTheme: FlutterTodosTheme.dark,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: const HomeView(),
+      // localizationsDelegates: AppLocalizations.localizationsDelegates,
+      // supportedLocales: AppLocalizations.supportedLocales,
+      home: const HomePage(),
     );
   }
 }
