@@ -39,10 +39,10 @@ dependencies:
   json_annotation: ^4.6.0
   meta: ^1.7.0
   uuid: ^3.0.6
-#  local_storage_todos_api:
-#    path: packages/local_storage_todos_api
-#  todos_api:
-#      path: packages/todos_api
+  local_storage_todos_api:
+    path: packages/local_storage_todos_api
+  todos_api:
+      path: packages/todos_api
 #  todos_repository:
 #      path: packages/todos_repository
 
@@ -56,8 +56,6 @@ dev_dependencies:
     sdk: flutter
   mockingjay: ^0.3.0
   mocktail: ^0.3.0
-  build_runner: ^2.2.0
-  json_serializable: ^6.3.1
   test: ^1.21.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
