@@ -9,13 +9,13 @@ class TodoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(
           'To Do',
-          style: getHeaderStyle(color: ColorManager.black),
+          style: getHeaderStyle(color: AppColors.black, fontSize: AppSize.s20),
         ),
       ),
       body: Container(),

@@ -8,12 +8,15 @@ class FlutterTodosTheme {
     return ThemeData(
       appBarTheme: AppBarTheme(
         centerTitle: false,
-        color: ColorManager.white,
+        color: AppColors.white,
         elevation: AppSize.s0,
-        titleTextStyle: getHeaderStyle(color: ColorManager.black),
+        titleTextStyle:
+            getHeaderStyle(color: AppColors.black, fontSize: AppSize.s20),
       ),
+      bottomNavigationBarTheme:
+          BottomNavigationBarThemeData(backgroundColor: AppColors.white),
       colorScheme: ColorScheme.fromSwatch(
-        accentColor: ColorManager.accentRed,
+        accentColor: AppColors.accentRed,
       ),
       snackBarTheme: const SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
@@ -25,13 +28,14 @@ class FlutterTodosTheme {
     return ThemeData(
       appBarTheme: AppBarTheme(
         centerTitle: false,
-        color: ColorManager.black,
+        color: AppColors.black,
         elevation: AppSize.s0,
-        titleTextStyle: getHeaderStyle(color: ColorManager.white),
+        titleTextStyle:
+            getHeaderStyle(color: AppColors.white, fontSize: AppSize.s20),
       ),
       colorScheme: ColorScheme.fromSwatch(
         brightness: Brightness.dark,
-        accentColor: ColorManager.accentRed,
+        accentColor: AppColors.accentRed,
       ),
       snackBarTheme: const SnackBarThemeData(
         behavior: SnackBarBehavior.floating,

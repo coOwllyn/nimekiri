@@ -11,8 +11,7 @@ TextStyle _getTextStyle(
   );
 }
 
-TextStyle getHeaderStyle(
-    {double fontSize = FontSize.s20, required Color color}) {
+TextStyle getHeaderStyle({required double fontSize, required Color color}) {
   return _getTextStyle(
     fontSize,
     FontConstants.fontFamily,

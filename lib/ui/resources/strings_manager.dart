@@ -1,17 +1,33 @@
 class AppStrings {
   // splash page
-  static const String nimekiri = "NimeKiri";
+  static const String nimekiri = 'NimeKiri';
 
   // welcome page
+  static const String welcomeTitle = 'Organize your productivity with NimeKiri';
+  static const String welcomeDescription =
+      'It is tome to organize the way you manage your tasks and take control of your productivity.';
+  static const String signUpWithEmail = 'SignUp with Email';
+  static const String signUpWithGoogle = 'SignUp with Google';
+  static const String signUpWithFaceBook = 'SignUp with Facebook';
+  static const String haveAccount = 'Already have an account? Login';
 
   // sign up page
+  static const String createAccount = 'Create\nAccount';
+  static const String signUp = 'SignUp';
+  static const String userName = 'Username';
+  static const String userNameHint = 'Enter your Username';
+  static const String email = 'Email';
+  static const String emailHint = 'Enter your Email';
+  static const String password = 'Password';
+  static const String passwordHint = 'Enter your Password';
+
+  // login page
+  static const String logIn = 'Login';
 
   // home page
-  static const String noRouteFound = "no_route_found";
-  static const String onBoardingTitle1 = "on_boarding_title1";
-  static const String onBoardingTitle2 = "on_boarding_title2";
-  static const String onBoardingTitle3 = "on_boarding_title3";
-  static const String onBoardingTitle4 = "on_boarding_title4";
+  static const String noRouteFound = 'no_route_found';
+  static const String onBoardingTitle1 = 'on_boarding_title1';
+  static const String onBoardingTitle2 = 'on_boarding_title2';
 
   // to do page
 
@@ -22,18 +38,15 @@ class AppStrings {
   static const String onBoardingSubTitle3 = "on_boarding_desc3";
   static const String onBoardingSubTitle4 = "on_boarding_desc4";
   static const String skip = "skip";
-  static const String username = "username_hint";
   static const String mobileNumber = "mobile_number_hint";
   static const String usernameError = "invalid_user_name";
   static const String passwordError = "invalid_password";
-  static const String password = "password_hint";
   static const String login = "login_button";
   static const String forgetPassword = "forgot_password_text";
   static const String registerText = "register_text";
   static const String loading = "loading";
   static const String retry_again = "retry_again";
   static const String ok = "ok";
-  static const String emailHint = 'email_hint';
   static const String invalidEmail = "invalid_email";
   static const String resetPassword = "reset_password";
   static const String success = "success";
@@ -41,7 +54,6 @@ class AppStrings {
   static const String photoGalley = "photo_gallery";
   static const String photoCamera = "camera";
   static const String register = "register";
-  static const String haveAccount = "already_have_account";
   static const String home = "home";
   static const String notifications = "notification";
   static const String search = "search";
@@ -57,16 +69,16 @@ class AppStrings {
   static const String logout = "logout";
 
   // error handler
-  static const String badRequestError = "bad_request_error";
-  static const String noContent = "no_content";
-  static const String forbiddenError = "forbidden_error";
-  static const String unauthorizedError = "unauthorized_error";
-  static const String notFoundError = "not_found_error";
-  static const String conflictError = "conflict_error";
-  static const String internalServerError = "internal_server_error";
-  static const String unknownError = "unknown_error";
-  static const String timeoutError = "timeout_error";
-  static const String defaultError = "default_error";
-  static const String cacheError = "cache_error";
-  static const String noInternetError = "no_internet_error";
+  static const String badRequestError = 'bad_request_error';
+  static const String noContent = 'no_content';
+  static const String forbiddenError = 'forbidden_error';
+  static const String unauthorizedError = 'unauthorized_error';
+  static const String notFoundError = 'not_found_error';
+  static const String conflictError = 'conflict_error';
+  static const String internalServerError = 'internal_server_error';
+  static const String unknownError = 'unknown_error';
+  static const String timeoutError = 'timeout_error';
+  static const String defaultError = 'default_error';
+  static const String cacheError = 'cache_error';
+  static const String noInternetError = 'no_internet_error';
 }

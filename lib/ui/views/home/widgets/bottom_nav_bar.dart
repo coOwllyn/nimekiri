@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_bloc/ui/resources/color_manager.dart';
+import 'package:todo_bloc/ui/resources/values_manager.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar(
@@ -12,15 +13,13 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-      ),
+      data: Theme.of(context).copyWith(canvasColor: AppColors.white),
       child: BottomNavigationBar(
+        elevation: AppSize.s0,
+        type: BottomNavigationBarType.fixed,
         currentIndex: selectedIndex,
-        selectedItemColor: ColorManager.primaryGreen,
-        unselectedItemColor: ColorManager.grey,
-        backgroundColor: ColorManager.white,
+        selectedItemColor: AppColors.primaryNavy,
+        unselectedItemColor: AppColors.grey,
         onTap: onItemTap,
         items: const [
           BottomNavigationBarItem(

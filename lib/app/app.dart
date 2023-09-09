@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_bloc/data/todos_repository.dart';
 import 'package:todo_bloc/ui/resources/routes_manager.dart';
 import 'package:todo_bloc/ui/resources/theme_manager.dart';
-import 'package:todo_bloc/ui/views/splash/splash_page.dart';
+import 'package:todo_bloc/ui/views/auth/splash/splash_page.dart';
 
 class MyApp extends StatelessWidget {
   MyApp._internal();
