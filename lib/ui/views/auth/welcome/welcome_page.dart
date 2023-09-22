@@ -7,6 +7,7 @@ import 'package:todo_bloc/ui/resources/strings_manager.dart';
 import 'package:todo_bloc/ui/resources/style_manager.dart';
 import 'package:todo_bloc/ui/resources/values_manager.dart';
 import 'package:todo_bloc/ui/views/auth/widgets/auth_button.dart';
+import 'package:todo_bloc/ui/views/home/widgets/routes_conatainer.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -106,7 +107,7 @@ class WelcomePage extends StatelessWidget {
                   const SizedBox(height: AppSize.s10),
                   AuthButton(
                     onTap: () {
-                      Navigator.pushNamed(context, Routes.signUpRoute);
+                      Navigator.pushNamed(context, AppRoutes.signUpRoute);
                     },
                     color: AppColors.primaryNavy,
                     borderColor: AppColors.primaryNavy,
@@ -117,7 +118,9 @@ class WelcomePage extends StatelessWidget {
                   ),
                   const SizedBox(height: AppSize.s10),
                   AuthButton(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push<void>(RoutesContainer.route());
+                    },
                     color: Colors.transparent,
                     borderColor: AppColors.primaryNavy,
                     overColor: AppColors.primaryNavy.withOpacity(0.3),

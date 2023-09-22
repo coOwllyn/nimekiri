@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc/ui/resources/color_manager.dart';
 import 'package:todo_bloc/ui/resources/style_manager.dart';
 import 'package:todo_bloc/ui/resources/values_manager.dart';
-import 'package:todo_bloc/ui/views/auth/auth_bloc/auth_bloc.dart';
 
 enum InputType { text, password }
 
@@ -83,7 +81,8 @@ class _AuthInputState extends State<AuthInput> {
                   : null,
           contentPadding: const EdgeInsets.all(AppSize.s20),
           hintText: widget.hintText,
-          hintStyle: getBodyStyle(color: AppColors.white),
+          hintStyle:
+              getBodyStyle(color: AppColors.white, fontSize: AppSize.s15),
           filled: true,
           fillColor: AppColors.lightNavy,
           border: InputBorder.none,

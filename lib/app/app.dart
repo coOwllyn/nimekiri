@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todo_bloc/data/todos_repository.dart';
 import 'package:todo_bloc/ui/resources/routes_manager.dart';
 import 'package:todo_bloc/ui/resources/theme_manager.dart';
 import 'package:todo_bloc/ui/views/auth/splash/splash_page.dart';
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: Routes.splashRoute,
+      initialRoute: AppRoutes.splashRoute,
       theme: FlutterTodosTheme.light,
       darkTheme: FlutterTodosTheme.dark,
       home: SplashPage(),

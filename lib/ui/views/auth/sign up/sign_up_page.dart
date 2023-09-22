@@ -145,9 +145,8 @@ class SignUpPage extends StatelessWidget {
                               type: InputType.password,
                               obscureText: !state.passwordVisible,
                               onPressedPassword: () {
-                                context
-                                    .read<AuthBloc>()
-                                    .add(PasswordVisibilityChangedEvent());
+                                context.read<AuthBloc>().add(
+                                    const PasswordVisibilityChangedEvent());
                               },
                               onPressedClear: () {
                                 //

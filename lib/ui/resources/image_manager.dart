@@ -4,5 +4,8 @@ class AppImages {
   static const String iconGoogle = 'images/icon_google.svg';
   static const String iconFacebook = 'images/icon_facebook.svg';
 
-  //login
+  // login
+
+  // to do
+  static const String noTask = 'images/no_task.svg';
 }

@@ -5,9 +5,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_bloc/app/app_bloc_observer.dart';
-import 'package:todo_bloc/data/todo_api.dart';
-import 'package:todo_bloc/data/todos_repository.dart';
-
 import 'app.dart';
 
 // void bootstrap({required TodosApi todosApi}) {

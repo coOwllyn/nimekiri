@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:todo_bloc/ui/resources/style_manager.dart';
+import 'package:todo_bloc/ui/resources/values_manager.dart';
 
 class AuthButton extends StatelessWidget {
   const AuthButton(
@@ -33,17 +35,12 @@ class AuthButton extends StatelessWidget {
           minimumSize: const MaterialStatePropertyAll(Size(400, 50)),
           backgroundColor: MaterialStatePropertyAll(color),
           shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(10),
               side: BorderSide(color: borderColor))),
         ),
         label: Text(label,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: textColor,
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-            )),
+            style: getBodyStyle(color: textColor, fontSize: AppSize.s16)),
         icon: SvgPicture.asset(asset),
       );
     }
@@ -57,16 +54,11 @@ class AuthButton extends StatelessWidget {
         minimumSize: const MaterialStatePropertyAll(Size(400, 50)),
         backgroundColor: MaterialStatePropertyAll(color),
         shape: MaterialStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
       ),
       child: Text(label,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 16,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
-          )),
+          style: getBodyStyle(color: textColor, fontSize: AppSize.s16)),
     );
   }
 }

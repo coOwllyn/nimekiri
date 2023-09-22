@@ -5,7 +5,7 @@ class AppStrings {
   // welcome page
   static const String welcomeTitle = 'Organize your productivity with NimeKiri';
   static const String welcomeDescription =
-      'It is tome to organize the way you manage your tasks and take control of your productivity.';
+      'It is time to organize the way you manage your tasks and take control of your productivity.';
   static const String signUpWithEmail = 'SignUp with Email';
   static const String signUpWithGoogle = 'SignUp with Google';
   static const String signUpWithFaceBook = 'SignUp with Facebook';
@@ -25,11 +25,21 @@ class AppStrings {
   static const String logIn = 'Login';
 
   // home page
-  static const String noRouteFound = 'no_route_found';
-  static const String onBoardingTitle1 = 'on_boarding_title1';
-  static const String onBoardingTitle2 = 'on_boarding_title2';
+  static const String noRouteFound = 'No route found';
 
   // to do page
+  static const String createNewTodo = 'Create Task';
+  static const String todoTitle = 'Task Title';
+  static const String todoDesc = 'Description';
+  static const String hintTitle = 'Enter task title';
+  static const String hintDesc = 'Enter task description';
+  static const String createTask = 'Create Task';
+
+  static const String taskList = 'Task List';
+  static const String noTask = 'You  have not created any tasks yet.';
+
+  // calendar
+  static const String weekDay = 'Sunday';
 
   // profile page
 
@@ -54,7 +64,6 @@ class AppStrings {
   static const String photoGalley = "photo_gallery";
   static const String photoCamera = "camera";
   static const String register = "register";
-  static const String home = "home";
   static const String notifications = "notification";
   static const String search = "search";
   static const String settings = "settings";

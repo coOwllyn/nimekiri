@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_bloc/ui/resources/color_manager.dart';
+import 'package:todo_bloc/ui/resources/routes_manager.dart';
 import 'package:todo_bloc/ui/resources/style_manager.dart';
 import 'package:todo_bloc/ui/resources/values_manager.dart';
-import 'package:todo_bloc/ui/views/home/home_form.dart';
-import 'package:todo_bloc/ui/views/home/widgets/new_todo_bottom_sheet.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -31,6 +30,8 @@ class HomePage extends StatelessWidget {
                     onPressed: () {},
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(),
+                    splashColor: AppColors.primaryNavy.withOpacity(0.5),
+                    splashRadius: AppSize.s25,
                     alignment: Alignment.center,
                     icon: Icon(
                       Icons.notifications_none_outlined,
@@ -39,22 +40,27 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ]),
-      body: HomeForm(),
+      body: Column(
+        children: [
+          //
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showModalBottomSheet(
-              context: context,
-              isScrollControlled: true,
-              isDismissible: true,
-              enableDrag: true,
-              shape: OutlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.white),
-                  borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(AppSize.s10),
-                      topLeft: Radius.circular(AppSize.s10))),
-              builder: (BuildContext context) {
-                return NewTodoBottomSheet();
-              });
+          Navigator.pushNamed(context, AppRoutes.newTodoRoute);
+          // showModalBottomSheet(
+          //     context: context,
+          //     isScrollControlled: true,
+          //     isDismissible: true,
+          //     enableDrag: true,
+          //     shape: OutlineInputBorder(
+          //         borderSide: BorderSide(color: AppColors.white),
+          //         borderRadius: const BorderRadius.only(
+          //             topRight: Radius.circular(AppSize.s10),
+          //             topLeft: Radius.circular(AppSize.s10))),
+          //     builder: (BuildContext context) {
+          //       return NewTodoBottomSheet();
+          //     });
         },
         backgroundColor: AppColors.primaryNavy,
         elevation: 0,
