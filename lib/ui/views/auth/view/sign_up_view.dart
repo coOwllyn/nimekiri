@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 import 'package:todo_bloc/ui/views/auth/auth_bloc/auth_bloc.dart';
 import 'package:todo_bloc/ui/views/auth/models/email.dart';
 import 'package:todo_bloc/ui/views/auth/models/username.dart';
@@ -62,37 +61,30 @@ class SignUpView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: AppPadding.p20, right: AppPadding.p20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Text(
                             AppStrings.createAccount,
                             style: getHeaderStyle(
-                                color: AppColors.primaryNavy,
-                                fontSize: AppSize.s30),
+                                color: AppColors.primaryNavy, fontSize: 30),
                           ),
                         ),
-                        const SizedBox(height: AppSize.s20),
+                        const SizedBox(height: 20),
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: AppPadding.p20, right: AppPadding.p20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Text(
                             AppStrings.userName,
                             style: getHeaderStyle(
-                                fontSize: AppSize.s15, color: AppColors.black),
+                                fontSize: 15, color: AppColors.black),
                           ),
                         ),
-                        const SizedBox(height: AppSize.s10),
+                        const SizedBox(height: 10),
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: AppPadding.p20, right: AppPadding.p20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: AuthInput(
                               onChanged: (usernameValue) {
                                 context
                                     .read<AuthBloc>()
                                     .add(UsernameChangedEvent(usernameValue));
-                                debugPrint('username ====  ${username.value}');
-                                debugPrint(
-                                    'value username ==== ${usernameValue}');
                               },
                               hintText: AppStrings.userNameHint,
                               isPassword: false,
@@ -104,20 +96,18 @@ class SignUpView extends StatelessWidget {
                                 //
                               }),
                         ),
-                        const SizedBox(height: AppSize.s20),
+                        const SizedBox(height: 20),
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: AppPadding.p20, right: AppPadding.p20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Text(
                             AppStrings.email,
                             style: getHeaderStyle(
-                                fontSize: AppSize.s15, color: AppColors.black),
+                                fontSize: 15, color: AppColors.black),
                           ),
                         ),
-                        const SizedBox(height: AppSize.s10),
+                        const SizedBox(height: 10),
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: AppPadding.p20, right: AppPadding.p20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: AuthInput(
                               onChanged: (emailValue) {
                                 context
@@ -134,20 +124,18 @@ class SignUpView extends StatelessWidget {
                                 //
                               }),
                         ),
-                        const SizedBox(height: AppSize.s20),
+                        const SizedBox(height: 20),
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: AppPadding.p20, right: AppPadding.p20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Text(
                             AppStrings.password,
                             style: getHeaderStyle(
-                                fontSize: AppSize.s15, color: AppColors.black),
+                                fontSize: 15, color: AppColors.black),
                           ),
                         ),
-                        const SizedBox(height: AppSize.s10),
+                        const SizedBox(height: 10),
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: AppPadding.p20, right: AppPadding.p20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: AuthInput(
                               onChanged: (passwordValue) {
                                 context
@@ -169,7 +157,7 @@ class SignUpView extends StatelessWidget {
                         )
                       ],
                     ),
-                    const SizedBox(height: AppSize.s20),
+                    const SizedBox(height: 20),
                     SafeArea(
                       left: false,
                       right: false,
@@ -177,9 +165,7 @@ class SignUpView extends StatelessWidget {
                       bottom: true,
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            left: AppPadding.p20,
-                            right: AppPadding.p20,
-                            bottom: AppPadding.p10),
+                            left: 20, right: 20, bottom: 10),
                         child: AuthButton(
                           onTap: () {
                             debugPrint('sign up not success');

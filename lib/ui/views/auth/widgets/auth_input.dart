@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 enum InputType { text, password }
 
@@ -76,21 +75,20 @@ class _AuthInputState extends State<AuthInput> {
                       icon: Icon(
                         Icons.clear,
                         color: AppColors.accentRed,
-                        size: AppSize.s25,
+                        size: 25,
                       ))
                   : null,
-          contentPadding: const EdgeInsets.all(AppSize.s20),
+          contentPadding: const EdgeInsets.all(20),
           hintText: widget.hintText,
-          hintStyle:
-              getBodyStyle(color: AppColors.white, fontSize: AppSize.s15),
+          hintStyle: getBodyStyle(color: AppColors.white, fontSize: 15),
           filled: true,
           fillColor: AppColors.lightNavy,
           border: InputBorder.none,
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppSize.s15),
+              borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide.none),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppSize.s15),
+              borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide(color: AppColors.primaryNavy, width: 2))),
     );
   }

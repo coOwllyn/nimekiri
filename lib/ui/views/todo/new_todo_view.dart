@@ -7,7 +7,6 @@ import 'package:todo_bloc/ui/common/resources/debounce_manager.dart';
 import 'package:todo_bloc/ui/common/resources/guid_gen_manager.dart';
 import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 import 'package:todo_bloc/ui/views/todo/bloc/tasks_bloc.dart';
 import 'package:todo_bloc/ui/views/todo/models/task.dart';
 import 'package:todo_bloc/ui/views/todo/widgets/add_button.dart';
@@ -98,8 +97,7 @@ class _NewTodoViewState extends State<NewTodoView> {
           // final String title = context.watch<TasksBloc>().state.task;
 
           return SingleChildScrollView(
-            padding: const EdgeInsets.only(
-                right: AppPadding.p15, left: AppPadding.p15),
+            padding: const EdgeInsets.only(right: 15, left: 15),
             child: Column(
               children: [
                 Form(
@@ -110,22 +108,22 @@ class _NewTodoViewState extends State<NewTodoView> {
                       Text(
                         AppStrings.todoTitle,
                         style: getHeaderStyle(
-                            fontSize: AppSize.s20, color: AppColors.black),
+                            fontSize: 20, color: AppColors.black),
                       ),
-                      const SizedBox(height: AppSize.s10),
+                      const SizedBox(height: 10),
                       TaskInput(
                         isTitle: true,
                         inputController: titleController,
                         hintText: AppStrings.hintTitle,
                         showClearButton: titleController.value.text.isNotEmpty,
                       ),
-                      const SizedBox(height: AppSize.s10),
+                      const SizedBox(height: 10),
                       Text(
                         AppStrings.todoDesc,
                         style: getHeaderStyle(
-                            fontSize: AppSize.s20, color: AppColors.black),
+                            fontSize: 20, color: AppColors.black),
                       ),
-                      const SizedBox(height: AppSize.s10),
+                      const SizedBox(height: 10),
                       TaskInput(
                         isTitle: false,
                         inputController: descController,
@@ -135,7 +133,7 @@ class _NewTodoViewState extends State<NewTodoView> {
                     ],
                   ),
                 ),
-                const SizedBox(height: AppSize.s20),
+                const SizedBox(height: 20),
                 SafeArea(
                   bottom: true,
                   right: false,

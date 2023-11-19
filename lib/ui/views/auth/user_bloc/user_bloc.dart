@@ -40,8 +40,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     try {
       // await databaseManager.logOut();
       await networkManager.signOut();
+      debugPrint('log out success');
     } catch (e) {
-      debugPrint('$e');
+      debugPrint('log out error === $e');
     }
   }
 

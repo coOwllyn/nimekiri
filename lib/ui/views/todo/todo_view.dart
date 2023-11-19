@@ -5,7 +5,6 @@ import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/image_manager.dart';
 import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 import 'package:todo_bloc/ui/views/todo/models/task.dart';
 import 'package:todo_bloc/ui/views/todo/widgets/task_tile.dart';
 
@@ -43,7 +42,7 @@ class _TodoViewState extends State<TodoView> {
         centerTitle: true,
         title: Text(
           AppStrings.taskList,
-          style: getHeaderStyle(color: AppColors.black, fontSize: AppSize.s20),
+          style: getHeaderStyle(color: AppColors.black, fontSize: 20),
         ),
         actions: [
           IconButton(
@@ -75,8 +74,8 @@ class _TodoViewState extends State<TodoView> {
                           child: SvgPicture.asset(AppImages.noTask)),
                       Text(
                         AppStrings.noTask,
-                        style: getBodyStyle(
-                            color: AppColors.black, fontSize: AppSize.s16),
+                        style:
+                            getBodyStyle(color: AppColors.black, fontSize: 15),
                       ),
                     ],
                   ),

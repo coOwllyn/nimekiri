@@ -6,22 +6,30 @@ import 'package:todo_bloc/ui/views/auth/view/splash_view.dart';
 import 'package:todo_bloc/ui/views/auth/view/welcome_view.dart';
 import 'package:todo_bloc/ui/views/calendar/calendar_view.dart';
 import 'package:todo_bloc/ui/views/home/home_view.dart';
-import 'package:todo_bloc/ui/views/profile/profile_view.dart';
+import 'package:todo_bloc/ui/views/settings/profile_view.dart';
+import 'package:todo_bloc/ui/views/settings/settings_view.dart';
 import 'package:todo_bloc/ui/views/todo/new_todo_view.dart';
 import 'package:todo_bloc/ui/views/todo/todo_view.dart';
 
 class AppRoutes {
-  static const String splashRoute = "/";
   static const String rotesContainerRoute = "/rotesContainer";
+  // welcome
+  static const String splashRoute = "/";
   static const String welcomeRoute = "/welcome";
+  // auth
   static const String signUpRoute = "/signUp";
   static const String loginRoute = "/login";
+  // home
   static const String homeRoute = "/home";
-  static const String registerRoute = "/register";
+  static const String notificationsRoute = "/notifications";
+  // to do
   static const String todoRoute = "/todo";
   static const String newTodoRoute = "/newTodo";
-  static const String profileRoute = "/profile";
+  // calendar
   static const String calendarRoute = "/calendar";
+  // settings
+  static const String settingsRoute = "/settings";
+  static const String profileRoute = "/profile";
 }
 
 class RouteGenerator {
@@ -49,11 +57,13 @@ class RouteGenerator {
       case AppRoutes.newTodoRoute:
         return MaterialPageRoute(builder: (_) => NewTodoView());
 
-      //
+      // calendar
       case AppRoutes.calendarRoute:
         return MaterialPageRoute(builder: (_) => CalendarView());
 
-      //
+      // settings
+      case AppRoutes.settingsRoute:
+        return MaterialPageRoute(builder: (_) => SettingsView());
       case AppRoutes.profileRoute:
         return MaterialPageRoute(builder: (_) => ProfileView());
 

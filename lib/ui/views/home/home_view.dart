@@ -20,6 +20,8 @@ class HomeView extends StatelessWidget {
         backColor: AppColors.white,
         isHome: true,
         showBackButton: false,
+        isSettings: false,
+        showProfile: () {},
       ),
       body: Column(
         children: [

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 class TaskTile extends StatelessWidget {
   TaskTile({
@@ -43,13 +42,12 @@ class TaskTile extends StatelessWidget {
             children: [
               ListTile(
                 title: Text(taskTitle,
-                    style: getHeaderStyle(
-                        color: AppColors.black, fontSize: AppSize.s18)),
+                    style:
+                        getHeaderStyle(color: AppColors.black, fontSize: 18)),
                 subtitle: Text(taskDesc,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: getBodyStyle(
-                        color: AppColors.black, fontSize: AppSize.s16)),
+                    style: getBodyStyle(color: AppColors.black, fontSize: 15)),
                 onTap: () {
                   // open detailed page
                 },

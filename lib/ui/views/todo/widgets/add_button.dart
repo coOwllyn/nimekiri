@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 class AddButton extends StatelessWidget {
   const AddButton({
@@ -36,7 +35,7 @@ class AddButton extends StatelessWidget {
       ),
       child: Text(label,
           textAlign: TextAlign.center,
-          style: getBodyStyle(color: textColor, fontSize: AppSize.s15)),
+          style: getBodyStyle(color: textColor, fontSize: 15)),
     );
   }
 }

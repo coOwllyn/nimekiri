@@ -9,13 +9,17 @@ class AppAppBar extends StatefulWidget implements PreferredSizeWidget {
     required this.backColor,
     required this.appBarTitle,
     required this.isHome,
+    required this.isSettings,
     required this.showBackButton,
+    required this.showProfile,
   }) : preferredSize = Size.fromHeight(kToolbarHeight);
 
   final Color backColor;
   final String appBarTitle;
   final bool isHome;
+  final bool isSettings;
   final bool showBackButton;
+  final Function() showProfile;
 
   @override
   final Size preferredSize;
@@ -83,7 +87,26 @@ class _AppAppBarState extends State<AppAppBar> {
                   color: AppColors.primaryNavy,
                 ),
               )
-            : SizedBox()
+            : widget.isSettings
+                ? InkWell(
+                    onTap: () {
+                      widget.showProfile();
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      margin: const EdgeInsets.only(right: 15),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.whiteNavy,
+                      ),
+                      child: Icon(
+                        Icons.person_outline,
+                        color: AppColors.primaryNavy,
+                      ),
+                    ),
+                  )
+                : SizedBox()
       ],
     );
   }

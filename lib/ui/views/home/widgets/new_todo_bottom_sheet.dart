@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 class NewTodoBottomSheet extends StatelessWidget {
   const NewTodoBottomSheet({super.key});
@@ -12,7 +11,7 @@ class NewTodoBottomSheet extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.only(
-          left: AppPadding.p15, right: AppPadding.p15, top: AppPadding.p10),
+          left: 15, right: 15, top: 10),
       height: height * 0.75,
       child: Column(
         children: [
@@ -22,7 +21,7 @@ class NewTodoBottomSheet extends StatelessWidget {
               Text(
                 'New Task',
                 style: getHeaderStyle(
-                    color: AppColors.black, fontSize: AppSize.s20),
+                    color: AppColors.black, fontSize: 20),
               ),
               IconButton(
                   onPressed: () {

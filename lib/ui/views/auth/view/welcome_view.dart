@@ -6,7 +6,6 @@ import 'package:todo_bloc/ui/common/resources/image_manager.dart';
 import 'package:todo_bloc/ui/common/resources/routes_manager.dart';
 import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 import 'package:todo_bloc/ui/views/auth/auth_bloc/auth_bloc.dart';
 import 'package:todo_bloc/ui/views/auth/widgets/auth_button.dart';
 import 'package:todo_bloc/ui/views/home/widgets/routes_conatainer.dart';
@@ -14,10 +13,15 @@ import 'package:todo_bloc/ui/views/home/widgets/routes_conatainer.dart';
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
 
+  static Widget route() {
+    return BlocProvider(
+      create: (context) => AuthBloc(),
+      child: const WelcomeView(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-
     return BlocProvider(
       create: (context) => AuthBloc(),
       child: Scaffold(
@@ -29,8 +33,7 @@ class WelcomeView extends StatelessWidget {
           centerTitle: true,
           title: Text(
             AppStrings.nimekiri,
-            style: getHeaderStyle(
-                color: AppColors.primaryNavy, fontSize: AppSize.s20),
+            style: getHeaderStyle(color: AppColors.primaryNavy, fontSize: 20),
           ),
         ),
         body: SafeArea(
@@ -42,22 +45,20 @@ class WelcomeView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                  padding: const EdgeInsets.only(
-                      left: AppPadding.p10, right: AppPadding.p10),
-                  height: height * 0.3,
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  height: MediaQuery.of(context).size.height * 0.3,
                   child: SvgPicture.asset(AppImages.welcome)),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: AppPadding.p15, right: AppPadding.p15),
+                padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
                     Text(
                       AppStrings.welcomeTitle,
                       textAlign: TextAlign.center,
-                      style: getHeaderStyle(
-                          color: AppColors.black, fontSize: AppSize.s20),
+                      style:
+                          getHeaderStyle(color: AppColors.black, fontSize: 20),
                     ),
-                    const SizedBox(height: AppSize.s15),
+                    const SizedBox(height: 15),
                     Text(
                       AppStrings.welcomeDescription,
                       maxLines: 3,
@@ -69,10 +70,7 @@ class WelcomeView extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: AppPadding.p15,
-                    right: AppPadding.p15,
-                    bottom: AppPadding.p10),
+                padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
                 child: Column(
                   children: [
                     AuthButton(
@@ -84,7 +82,7 @@ class WelcomeView extends StatelessWidget {
                       textColor: AppColors.primaryNavy,
                       asset: AppImages.iconGoogle,
                     ),
-                    const SizedBox(height: AppSize.s10),
+                    const SizedBox(height: 10),
                     AuthButton(
                       onTap: () {},
                       color: AppColors.primaryNavy.withOpacity(0.8),
@@ -94,22 +92,22 @@ class WelcomeView extends StatelessWidget {
                       textColor: AppColors.white,
                       asset: AppImages.iconFacebook,
                     ),
-                    const SizedBox(height: AppSize.s10),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
-                        const SizedBox(width: AppSize.s10),
+                        const SizedBox(width: 10),
                         Expanded(child: Divider(color: AppColors.grey)),
-                        const SizedBox(width: AppSize.s15),
+                        const SizedBox(width: 15),
                         Text(
                           'OR',
                           style: getBodyStyle(color: AppColors.grey),
                         ),
-                        const SizedBox(width: AppSize.s15),
+                        const SizedBox(width: 15),
                         Expanded(child: Divider(color: AppColors.grey)),
-                        const SizedBox(width: AppSize.s10),
+                        const SizedBox(width: 10),
                       ],
                     ),
-                    const SizedBox(height: AppSize.s10),
+                    const SizedBox(height: 10),
                     AuthButton(
                       onTap: () {
                         Navigator.pushNamed(context, AppRoutes.signUpRoute);
@@ -121,7 +119,7 @@ class WelcomeView extends StatelessWidget {
                       textColor: AppColors.white,
                       asset: '',
                     ),
-                    const SizedBox(height: AppSize.s10),
+                    const SizedBox(height: 10),
                     AuthButton(
                       onTap: () {
                         Navigator.push(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 class AuthButton extends StatelessWidget {
   const AuthButton(
@@ -40,7 +39,7 @@ class AuthButton extends StatelessWidget {
         ),
         label: Text(label,
             textAlign: TextAlign.center,
-            style: getBodyStyle(color: textColor, fontSize: AppSize.s16)),
+            style: getBodyStyle(color: textColor, fontSize: 15)),
         icon: SvgPicture.asset(asset),
       );
     }
@@ -58,7 +57,7 @@ class AuthButton extends StatelessWidget {
       ),
       child: Text(label,
           textAlign: TextAlign.center,
-          style: getBodyStyle(color: textColor, fontSize: AppSize.s16)),
+          style: getBodyStyle(color: textColor, fontSize: 15)),
     );
   }
 }

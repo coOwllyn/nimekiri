@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 class TaskInput extends StatelessWidget {
   const TaskInput({
@@ -47,21 +46,21 @@ class TaskInput extends StatelessWidget {
                   icon: Icon(
                     Icons.clear,
                     color: AppColors.accentRed,
-                    size: AppSize.s25,
+                    size: 25,
                   ))
               : null,
-          contentPadding: const EdgeInsets.all(AppSize.s20),
+          contentPadding: const EdgeInsets.all(20),
           hintText: hintText,
           hintStyle: getBodyStyle(
-              color: AppColors.black.withOpacity(0.8), fontSize: AppSize.s15),
+              color: AppColors.black.withOpacity(0.8), fontSize: 15),
           filled: true,
           fillColor: AppColors.lightNavy.withOpacity(0.5),
           border: InputBorder.none,
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppSize.s15),
+              borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide.none),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppSize.s15),
+              borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide(color: AppColors.primaryNavy, width: 2))),
     );
   }

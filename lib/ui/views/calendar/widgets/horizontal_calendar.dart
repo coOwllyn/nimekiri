@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 class HorizontalCalendar extends StatefulWidget {
   const HorizontalCalendar({super.key});
@@ -27,65 +26,60 @@ class _HorizontalCalendarState extends State<HorizontalCalendar> {
       daysOfWeekVisible: true,
       sixWeekMonthsEnforced: true,
       shouldFillViewport: false,
-      rowHeight: AppSize.s60,
+      rowHeight: 45,
       calendarFormat: _calendarFormat,
       startingDayOfWeek: StartingDayOfWeek.monday,
       headerStyle: HeaderStyle(
         titleCentered: true,
         titleTextStyle:
-            getHeaderStyle(fontSize: AppSize.s18, color: AppColors.primaryNavy),
+            getHeaderStyle(fontSize: 18, color: AppColors.primaryNavy),
         leftChevronIcon: Icon(
           Icons.arrow_back_ios_outlined,
           color: AppColors.primaryNavy,
-          size: AppSize.s20,
+          size: 20,
         ),
         rightChevronIcon: Icon(
           Icons.arrow_forward_ios_outlined,
           color: AppColors.primaryNavy,
-          size: AppSize.s20,
+          size: 20,
         ),
         formatButtonTextStyle: getBodyStyle(color: AppColors.primaryNavy),
         formatButtonDecoration: BoxDecoration(
           border: Border.all(color: AppColors.primaryNavy),
-          borderRadius: BorderRadius.circular(AppSize.s10),
+          borderRadius: BorderRadius.circular(10),
         ),
       ),
-      daysOfWeekHeight: AppSize.s30,
+      daysOfWeekHeight: 30,
       daysOfWeekStyle: DaysOfWeekStyle(
-        weekdayStyle:
-            getBodyStyle(fontSize: AppSize.s16, color: AppColors.black),
-        weekendStyle:
-            getBodyStyle(fontSize: AppSize.s16, color: AppColors.accentRed),
+        weekdayStyle: getBodyStyle(fontSize: 15, color: AppColors.black),
+        weekendStyle: getBodyStyle(fontSize: 15, color: AppColors.accentRed),
       ),
       calendarStyle: CalendarStyle(
-        tablePadding:
-            const EdgeInsets.only(left: AppSize.s10, right: AppSize.s10),
+        tablePadding: const EdgeInsets.only(left: 10, right: 10),
         weekendTextStyle:
-            getBodyStyle(color: AppColors.accentRed, fontSize: AppSize.s16),
+            getBodyStyle(color: AppColors.accentRed, fontSize: 15),
         weekendDecoration: BoxDecoration(
             shape: BoxShape.rectangle,
             border: Border.all(color: Colors.transparent),
-            borderRadius: BorderRadius.circular(AppSize.s10)),
+            borderRadius: BorderRadius.circular(10)),
         isTodayHighlighted: true,
         todayTextStyle:
-            getBodyStyle(color: AppColors.primaryNavy, fontSize: AppSize.s16),
+            getBodyStyle(color: AppColors.primaryNavy, fontSize: 15),
         todayDecoration: BoxDecoration(
             shape: BoxShape.rectangle,
             border: Border.all(color: AppColors.primaryNavy),
-            borderRadius: BorderRadius.circular(AppSize.s10)),
-        selectedTextStyle:
-            getBodyStyle(color: AppColors.white, fontSize: AppSize.s16),
+            borderRadius: BorderRadius.circular(10)),
+        selectedTextStyle: getBodyStyle(color: AppColors.white, fontSize: 15),
         selectedDecoration: BoxDecoration(
             shape: BoxShape.rectangle,
             color: AppColors.primaryNavy,
-            borderRadius: BorderRadius.circular(AppSize.s10)),
+            borderRadius: BorderRadius.circular(10)),
         canMarkersOverflow: true,
-        defaultTextStyle:
-            getBodyStyle(color: AppColors.black, fontSize: AppSize.s16),
+        defaultTextStyle: getBodyStyle(color: AppColors.black, fontSize: 15),
         defaultDecoration: BoxDecoration(
             shape: BoxShape.rectangle,
             border: Border.all(color: Colors.transparent),
-            borderRadius: BorderRadius.circular(AppSize.s10)),
+            borderRadius: BorderRadius.circular(10)),
       ),
       onDaySelected: (selectedDay, focusedDay) {
         if (!isSameDay(_selectedDay, selectedDay)) {
