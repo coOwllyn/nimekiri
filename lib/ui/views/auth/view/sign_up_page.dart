@@ -1,40 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_bloc/ui/resources/color_manager.dart';
-import 'package:todo_bloc/ui/resources/strings_manager.dart';
-import 'package:todo_bloc/ui/resources/style_manager.dart';
-import 'package:todo_bloc/ui/resources/values_manager.dart';
+import 'package:todo_bloc/ui/common/resources/color_manager.dart';
+import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
+import 'package:todo_bloc/ui/common/resources/style_manager.dart';
+import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 import 'package:todo_bloc/ui/views/auth/auth_bloc/auth_bloc.dart';
+import 'package:todo_bloc/ui/views/auth/models/email.dart';
 import 'package:todo_bloc/ui/views/auth/models/username.dart';
+import 'package:todo_bloc/ui/views/auth/user_bloc/user_bloc.dart';
 import 'package:todo_bloc/ui/views/auth/widgets/auth_button.dart';
 import 'package:todo_bloc/ui/views/auth/widgets/auth_input.dart';
+import 'package:todo_bloc/ui/views/home/widgets/routes_conatainer.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.white,
-      appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            splashRadius: 25,
-            padding: EdgeInsets.zero,
-            splashColor: AppColors.primaryNavy.withOpacity(0.5),
-            icon: Icon(
-              Icons.arrow_back_ios_outlined,
-              color: AppColors.primaryNavy,
-            )),
-      ),
-      body: BlocProvider(
-        create: (context) => AuthBloc(),
-        child: LayoutBuilder(builder: (context, constraint) {
+    return BlocListener<AuthBloc, AuthState>(
+      listenWhen: (previous, current) => previous.status != current.status,
+      listener: (context, state) {
+        if (state.status == AuthStatus.success) {
+          context.read<UserBloc>().add(LoadUser(state.receivedUser!));
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => RoutesContainer.route()),
+              (route) => false);
+        }
+      },
+      child: Scaffold(
+        backgroundColor: AppColors.white,
+        appBar: AppBar(
+          elevation: 0,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              splashRadius: 25,
+              padding: EdgeInsets.zero,
+              splashColor: AppColors.primaryNavy.withOpacity(0.5),
+              icon: Icon(
+                Icons.arrow_back_ios_outlined,
+                color: AppColors.primaryNavy,
+              )),
+        ),
+        body: LayoutBuilder(builder: (context, constraint) {
           final Username username = context.watch<AuthBloc>().state.username;
-          final String email = context.watch<AuthBloc>().state.email;
+          final Email email = context.watch<AuthBloc>().state.email;
+          final String password =
+              context.watch<AuthBloc>().state.password.toString();
 
           final AuthState state = context.select((AuthBloc bloc) => bloc.state);
           return SingleChildScrollView(
@@ -72,12 +86,13 @@ class SignUpPage extends StatelessWidget {
                           padding: const EdgeInsets.only(
                               left: AppPadding.p20, right: AppPadding.p20),
                           child: AuthInput(
-                              onChanged: (value) {
+                              onChanged: (usernameValue) {
                                 context
                                     .read<AuthBloc>()
-                                    .add(UsernameChangedEvent(value));
-                                debugPrint(username.value);
-                                debugPrint(value);
+                                    .add(UsernameChangedEvent(usernameValue));
+                                debugPrint('username ====  ${username.value}');
+                                debugPrint(
+                                    'value username ==== ${usernameValue}');
                               },
                               hintText: AppStrings.userNameHint,
                               isPassword: false,
@@ -104,15 +119,15 @@ class SignUpPage extends StatelessWidget {
                           padding: const EdgeInsets.only(
                               left: AppPadding.p20, right: AppPadding.p20),
                           child: AuthInput(
-                              onChanged: (value) {
+                              onChanged: (emailValue) {
                                 context
                                     .read<AuthBloc>()
-                                    .add(EmailChangedEvent(value));
+                                    .add(EmailChangedEvent(emailValue));
                               },
                               hintText: AppStrings.emailHint,
                               isPassword: false,
                               obscureText: false,
-                              showClearButton: email.isNotEmpty,
+                              showClearButton: false,
                               type: InputType.text,
                               onPressedPassword: () {},
                               onPressedClear: () {
@@ -134,10 +149,10 @@ class SignUpPage extends StatelessWidget {
                           padding: const EdgeInsets.only(
                               left: AppPadding.p20, right: AppPadding.p20),
                           child: AuthInput(
-                              onChanged: (value) {
+                              onChanged: (passwordValue) {
                                 context
                                     .read<AuthBloc>()
-                                    .add(PasswordChangedEvent(value));
+                                    .add(PasswordChangedEvent(passwordValue));
                               },
                               hintText: AppStrings.passwordHint,
                               isPassword: true,
@@ -166,7 +181,13 @@ class SignUpPage extends StatelessWidget {
                             right: AppPadding.p20,
                             bottom: AppPadding.p10),
                         child: AuthButton(
-                          onTap: () {},
+                          onTap: () {
+                            debugPrint('sign up not success');
+                            context
+                                .read<AuthBloc>()
+                                .add(const SignUpSubmittedEvent());
+                            debugPrint('sign up success');
+                          },
                           color: AppColors.primaryNavy,
                           borderColor: AppColors.primaryNavy,
                           overColor: AppColors.white.withOpacity(0.5),

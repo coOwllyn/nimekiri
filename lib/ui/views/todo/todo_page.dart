@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_bloc/data/database/db_helper.dart';
-import 'package:todo_bloc/ui/resources/color_manager.dart';
-import 'package:todo_bloc/ui/resources/image_manager.dart';
-import 'package:todo_bloc/ui/resources/strings_manager.dart';
-import 'package:todo_bloc/ui/resources/style_manager.dart';
-import 'package:todo_bloc/ui/resources/values_manager.dart';
+import 'package:todo_bloc/ui/common/resources/color_manager.dart';
+import 'package:todo_bloc/ui/common/resources/image_manager.dart';
+import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
+import 'package:todo_bloc/ui/common/resources/style_manager.dart';
+import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 import 'package:todo_bloc/ui/views/todo/models/task.dart';
 import 'package:todo_bloc/ui/views/todo/widgets/task_tile.dart';
 

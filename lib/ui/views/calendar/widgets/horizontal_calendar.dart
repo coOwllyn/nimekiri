@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:todo_bloc/ui/resources/color_manager.dart';
-import 'package:todo_bloc/ui/resources/style_manager.dart';
-import 'package:todo_bloc/ui/resources/values_manager.dart';
+import 'package:todo_bloc/ui/common/resources/color_manager.dart';
+import 'package:todo_bloc/ui/common/resources/style_manager.dart';
+import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 class HorizontalCalendar extends StatefulWidget {
   const HorizontalCalendar({super.key});

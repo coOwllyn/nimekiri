@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "824150006539",
+    "project_id": "nimekiri-8f8ef",
+    "storage_bucket": "nimekiri-8f8ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824150006539:android:3af4b6c74f3f350ec7600e",
+        "android_client_info": {
+          "package_name": "com.coOwllyn.nimekiri"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2__TenHnUudbWZ6DA4g00W7uYODU6UR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

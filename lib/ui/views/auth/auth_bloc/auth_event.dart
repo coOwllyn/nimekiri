@@ -42,6 +42,14 @@ class LoginSubmittedEvent extends AuthEvent {
   const LoginSubmittedEvent();
 }
 
+class LoginWithGoogleUser extends AuthEvent {
+  const LoginWithGoogleUser();
+}
+
+class SignUpWithGoogleUser extends AuthEvent {
+  const SignUpWithGoogleUser();
+}
+
 class LogOutEvent extends AuthEvent {
   const LogOutEvent();
 }

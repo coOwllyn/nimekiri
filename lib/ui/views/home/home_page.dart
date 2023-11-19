@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_bloc/ui/resources/color_manager.dart';
-import 'package:todo_bloc/ui/resources/routes_manager.dart';
-import 'package:todo_bloc/ui/resources/style_manager.dart';
-import 'package:todo_bloc/ui/resources/values_manager.dart';
+import 'package:todo_bloc/ui/common/resources/color_manager.dart';
+import 'package:todo_bloc/ui/common/resources/routes_manager.dart';
+import 'package:todo_bloc/ui/common/resources/style_manager.dart';
+import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

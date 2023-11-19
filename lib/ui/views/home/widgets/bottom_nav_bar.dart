@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_bloc/ui/resources/color_manager.dart';
-import 'package:todo_bloc/ui/resources/values_manager.dart';
+import 'package:todo_bloc/ui/common/resources/color_manager.dart';
+import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar(

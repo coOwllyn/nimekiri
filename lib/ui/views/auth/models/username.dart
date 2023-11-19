@@ -1,6 +1,6 @@
 import 'package:formz/formz.dart';
 
-enum UsernameValidationError { empty, noValidationNumber, wrongCi }
+enum UsernameValidationError { empty, noValidationNumber }
 
 class Username extends FormzInput<String, UsernameValidationError> {
   const Username.pure() : super.pure('');
@@ -10,8 +10,6 @@ class Username extends FormzInput<String, UsernameValidationError> {
   @override
   UsernameValidationError? validator(String value) {
     if (value.isEmpty) return UsernameValidationError.empty;
-    if (value.length == 7) return UsernameValidationError.noValidationNumber;
-    if (value.length != 8) return UsernameValidationError.wrongCi;
     return null;
   }
 }

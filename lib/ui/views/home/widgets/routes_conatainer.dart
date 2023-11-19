@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_bloc/ui/resources/color_manager.dart';
+import 'package:todo_bloc/ui/common/resources/color_manager.dart';
+import 'package:todo_bloc/ui/views/auth/auth_bloc/auth_bloc.dart';
 import 'package:todo_bloc/ui/views/calendar/calendar_page.dart';
 import 'package:todo_bloc/ui/views/home/cubit%20bottom%20bar/bottom_bar_cubit.dart';
 import 'package:todo_bloc/ui/views/home/home_page.dart';
@@ -11,12 +12,11 @@ import 'package:todo_bloc/ui/views/todo/todo_page.dart';
 class RoutesContainer extends StatefulWidget {
   const RoutesContainer({super.key});
 
-  static Route<void> route() {
-    return MaterialPageRoute<void>(
-        builder: (_) => BlocProvider(
-              create: (context) => BottomBarCubit(),
-              child: const RoutesContainer(),
-            ));
+  static Widget route() {
+    return BlocProvider(
+      create: (context) => BottomBarCubit(),
+      child: const RoutesContainer(),
+    );
   }
 
   @override
@@ -33,18 +33,28 @@ class _RoutesContainerState extends State<RoutesContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<BottomBarCubit, BottomBarState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          var cubit = BottomBarCubit.get(context);
-          return Scaffold(
-            backgroundColor: AppColors.white,
-            body: routes[cubit.currentIndex],
-            bottomNavigationBar: BottomNavBar(
-              selectedIndex: cubit.currentIndex,
-              onItemTap: (index) => cubit.changeBottomNavBar(index),
-            ),
-          );
-        });
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthBloc(),
+        ),
+        // BlocProvider(
+        //   create: (context) => SubjectBloc(),
+        // ),
+      ],
+      child: BlocConsumer<BottomBarCubit, BottomBarState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            final cubit = BottomBarCubit.get(context);
+            return Scaffold(
+              backgroundColor: AppColors.white,
+              body: routes[cubit.currentIndex],
+              bottomNavigationBar: BottomNavBar(
+                selectedIndex: cubit.currentIndex,
+                onItemTap: (index) => cubit.changeBottomNavBar(index),
+              ),
+            );
+          }),
+    );
   }
 }

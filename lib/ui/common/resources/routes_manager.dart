@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:todo_bloc/ui/resources/strings_manager.dart';
-import 'package:todo_bloc/ui/views/auth/login/login_page.dart';
-import 'package:todo_bloc/ui/views/auth/sign%20up/sign_up_page.dart';
-import 'package:todo_bloc/ui/views/auth/splash/splash_page.dart';
-import 'package:todo_bloc/ui/views/auth/welcome/welcome_page.dart';
+import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
+import 'package:todo_bloc/ui/views/auth/view/login_page.dart';
+import 'package:todo_bloc/ui/views/auth/view/sign_up_page.dart';
+import 'package:todo_bloc/ui/views/auth/view/splash_page.dart';
+import 'package:todo_bloc/ui/views/auth/view/welcome_page.dart';
 import 'package:todo_bloc/ui/views/calendar/calendar_page.dart';
 import 'package:todo_bloc/ui/views/home/home_page.dart';
 import 'package:todo_bloc/ui/views/profile/profile_page.dart';
