@@ -19,6 +19,7 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
+        backgroundColor: AppColors.white,
         elevation: 0,
         leadingWidth: 0,
         centerTitle: true,

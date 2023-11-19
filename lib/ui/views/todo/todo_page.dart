@@ -38,6 +38,7 @@ class _TodoPageState extends State<TodoPage> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
+        backgroundColor: AppColors.white,
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(

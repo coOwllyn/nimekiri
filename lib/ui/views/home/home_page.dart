@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
+          backgroundColor: AppColors.white,
           leadingWidth: 0,
           title: Text(
             'Home place',
