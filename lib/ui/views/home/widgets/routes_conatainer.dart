@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/views/auth/auth_bloc/auth_bloc.dart';
-import 'package:todo_bloc/ui/views/calendar/calendar_page.dart';
+import 'package:todo_bloc/ui/views/calendar/calendar_view.dart';
 import 'package:todo_bloc/ui/views/home/cubit%20bottom%20bar/bottom_bar_cubit.dart';
-import 'package:todo_bloc/ui/views/home/home_page.dart';
+import 'package:todo_bloc/ui/views/home/home_view.dart';
 import 'package:todo_bloc/ui/views/home/widgets/bottom_nav_bar.dart';
-import 'package:todo_bloc/ui/views/profile/profile_page.dart';
-import 'package:todo_bloc/ui/views/todo/todo_page.dart';
+import 'package:todo_bloc/ui/views/profile/profile_view.dart';
+import 'package:todo_bloc/ui/views/todo/todo_view.dart';
 
 class RoutesContainer extends StatefulWidget {
   const RoutesContainer({super.key});
@@ -25,10 +25,10 @@ class RoutesContainer extends StatefulWidget {
 
 class _RoutesContainerState extends State<RoutesContainer> {
   final List routes = [
-    const HomePage(),
-    const TodoPage(),
-    const CalendarPage(),
-    const ProfilePage(),
+    const HomeView(),
+    const TodoView(),
+    const CalendarView(),
+    const ProfileView(),
   ];
 
   @override

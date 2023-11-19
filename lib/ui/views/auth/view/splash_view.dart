@@ -5,16 +5,16 @@ import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/font_manager.dart';
 import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/views/auth/view/welcome_page.dart';
+import 'package:todo_bloc/ui/views/auth/view/welcome_view.dart';
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+class SplashView extends StatefulWidget {
+  const SplashView({Key? key}) : super(key: key);
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  _SplashViewState createState() => _SplashViewState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashViewState extends State<SplashView> {
   Timer? _timer;
 
   _startDelay() {
@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> {
     //     context, RoutesContainer.route(), (route) => false);
 
     Navigator.pushAndRemoveUntil(context,
-        MaterialPageRoute(builder: (_) => WelcomePage()), (route) => false);
+        MaterialPageRoute(builder: (_) => WelcomeView()), (route) => false);
   }
 
   @override

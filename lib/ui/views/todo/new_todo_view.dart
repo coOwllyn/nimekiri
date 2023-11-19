@@ -13,14 +13,14 @@ import 'package:todo_bloc/ui/views/todo/models/task.dart';
 import 'package:todo_bloc/ui/views/todo/widgets/add_button.dart';
 import 'package:todo_bloc/ui/views/todo/widgets/task_input.dart';
 
-class NewTodoPage extends StatefulWidget {
-  const NewTodoPage({super.key});
+class NewTodoView extends StatefulWidget {
+  const NewTodoView({super.key});
 
   @override
-  State<NewTodoPage> createState() => _NewTodoPageState();
+  State<NewTodoView> createState() => _NewTodoViewState();
 }
 
-class _NewTodoPageState extends State<NewTodoPage> {
+class _NewTodoViewState extends State<NewTodoView> {
   TextEditingController titleController = TextEditingController();
   TextEditingController descController = TextEditingController();
   DebounceManager debounceManager =

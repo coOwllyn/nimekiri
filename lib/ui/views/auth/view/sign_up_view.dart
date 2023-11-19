@@ -12,8 +12,8 @@ import 'package:todo_bloc/ui/views/auth/widgets/auth_button.dart';
 import 'package:todo_bloc/ui/views/auth/widgets/auth_input.dart';
 import 'package:todo_bloc/ui/views/home/widgets/routes_conatainer.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {

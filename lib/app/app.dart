@@ -4,8 +4,8 @@ import 'package:todo_bloc/ui/common/resources/routes_manager.dart';
 import 'package:todo_bloc/ui/common/resources/theme_manager.dart';
 import 'package:todo_bloc/ui/views/auth/auth_bloc/auth_bloc.dart';
 import 'package:todo_bloc/ui/views/auth/user_bloc/user_bloc.dart';
-import 'package:todo_bloc/ui/views/auth/view/splash_page.dart';
-import 'package:todo_bloc/ui/views/auth/view/welcome_page.dart';
+import 'package:todo_bloc/ui/views/auth/view/splash_view.dart';
+import 'package:todo_bloc/ui/views/auth/view/welcome_view.dart';
 import 'package:todo_bloc/ui/views/home/widgets/routes_conatainer.dart';
 
 class MyApp extends StatelessWidget {
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
               darkTheme: FlutterTodosTheme.dark,
               home: const Scaffold(
                 backgroundColor: Colors.black,
-                body: SplashPage(),
+                body: SplashView(),
               ),
             );
           }
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
             darkTheme: FlutterTodosTheme.dark,
             home: status == UserStatus.loggedIn
                 ? RoutesContainer.route()
-                : WelcomePage(),
+                : WelcomeView(),
           );
         },
       ),

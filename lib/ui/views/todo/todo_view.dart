@@ -9,14 +9,14 @@ import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 import 'package:todo_bloc/ui/views/todo/models/task.dart';
 import 'package:todo_bloc/ui/views/todo/widgets/task_tile.dart';
 
-class TodoPage extends StatefulWidget {
-  const TodoPage({super.key});
+class TodoView extends StatefulWidget {
+  const TodoView({super.key});
 
   @override
-  State<TodoPage> createState() => _TodoPageState();
+  State<TodoView> createState() => _TodoViewState();
 }
 
-class _TodoPageState extends State<TodoPage> {
+class _TodoViewState extends State<TodoView> {
   DBHelper? dbHelper;
   late Future<List<Task>> dataList;
 

@@ -5,8 +5,8 @@ import 'package:todo_bloc/ui/common/resources/style_manager.dart';
 import 'package:todo_bloc/ui/common/resources/values_manager.dart';
 import 'package:todo_bloc/ui/views/calendar/widgets/horizontal_calendar.dart';
 
-class CalendarPage extends StatelessWidget {
-  const CalendarPage({super.key});
+class CalendarView extends StatelessWidget {
+  const CalendarView({super.key});
 
   @override
   Widget build(BuildContext context) {

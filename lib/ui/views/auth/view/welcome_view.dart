@@ -11,8 +11,8 @@ import 'package:todo_bloc/ui/views/auth/auth_bloc/auth_bloc.dart';
 import 'package:todo_bloc/ui/views/auth/widgets/auth_button.dart';
 import 'package:todo_bloc/ui/views/home/widgets/routes_conatainer.dart';
 
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+class WelcomeView extends StatelessWidget {
+  const WelcomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
