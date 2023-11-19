@@ -122,10 +122,11 @@ class WelcomeView extends StatelessWidget {
                     const SizedBox(height: 10),
                     AuthButton(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RoutesContainer.route()));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => RoutesContainer.route()));
+                        Navigator.pushNamed(context, AppRoutes.loginRoute);
                       },
                       color: Colors.transparent,
                       borderColor: AppColors.primaryNavy,

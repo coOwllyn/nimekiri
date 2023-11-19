@@ -78,7 +78,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         isValid: Formz.validate([password]),
       ),
     );
-    debugPrint('user');
+    debugPrint('user sign up');
 
     try {
       User user = await networkManager.signUpWithEmailAndPassword(
@@ -108,38 +108,40 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     LoginSubmittedEvent event,
     Emitter<AuthState> emit,
   ) async {
-    if (state.isValid) {
-      emit(state.copyWith(status: AuthStatus.loading));
-      final password = Password.dirty(state.password.value);
+    // if (state.isValid) {
+    emit(state.copyWith(status: AuthStatus.loading));
+    final password = Password.dirty(state.password.value);
+    emit(
+      state.copyWith(
+        password: password,
+        isValid: Formz.validate([password]),
+      ),
+    );
+    debugPrint('user login');
+
+    try {
+      User user = await networkManager.logInWithEmailAndPassword(
+        state.email.value,
+        state.password.value,
+      );
+      debugPrint("user email ===================== ${user.email}");
+
+      FirebaseAuth.instance.currentUser;
+
       emit(
         state.copyWith(
-          password: password,
-          isValid: Formz.validate([password]),
+          status: AuthStatus.success,
+          receivedUser: user,
         ),
       );
-      try {
-        User user = await networkManager.logInWithEmailAndPassword(
-          state.email.value,
-          state.password.value,
-        );
-        debugPrint("user email ===================== ${user.email}");
-
-        FirebaseAuth.instance.currentUser;
-
-        emit(
-          state.copyWith(
-            status: AuthStatus.success,
-            receivedUser: user,
-          ),
-        );
-      } catch (e) {
-        debugPrint("login =============================  ${e}");
-        emit(state.copyWith(
-            status: AuthStatus.failure, errorMessage: e.toString()));
-      }
-    } else {
-      emit(state.copyWith(status: AuthStatus.failure));
+    } catch (e) {
+      debugPrint("login =============================  ${e}");
+      emit(state.copyWith(
+          status: AuthStatus.failure, errorMessage: e.toString()));
     }
+    // } else {
+    //   emit(state.copyWith(status: AuthStatus.failure));
+    // }
   }
 
   NetworkManager networkManager = NetworkManagerImpl();

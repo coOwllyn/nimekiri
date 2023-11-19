@@ -22,6 +22,7 @@ class AppStrings {
   static const String passwordHint = 'Enter your Password';
 
   static const String logIn = 'Login';
+  static const String logInTitle = 'Login into your account';
 
   // bottom bar
   static const String homeLabel = 'Home';

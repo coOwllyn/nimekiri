@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
+import 'package:todo_bloc/ui/common/widgets/app_app_bar.dart';
 import 'package:todo_bloc/ui/views/auth/auth_bloc/auth_bloc.dart';
 import 'package:todo_bloc/ui/views/auth/models/email.dart';
 import 'package:todo_bloc/ui/views/auth/models/username.dart';
@@ -29,19 +30,13 @@ class SignUpView extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: AppColors.white,
-        appBar: AppBar(
-          elevation: 0,
-          leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              splashRadius: 25,
-              padding: EdgeInsets.zero,
-              splashColor: AppColors.primaryNavy.withOpacity(0.5),
-              icon: Icon(
-                Icons.arrow_back_ios_outlined,
-                color: AppColors.primaryNavy,
-              )),
+        appBar: AppAppBar(
+          appBarTitle: '',
+          backColor: AppColors.white,
+          isHome: false,
+          showBackButton: true,
+          isSettings: false,
+          showProfile: () {},
         ),
         body: LayoutBuilder(builder: (context, constraint) {
           final Username username = context.watch<AuthBloc>().state.username;
@@ -61,7 +56,8 @@ class SignUpView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          padding: const EdgeInsets.only(
+                              left: 20, right: 20, top: 20),
                           child: Text(
                             AppStrings.createAccount,
                             style: getHeaderStyle(
@@ -165,7 +161,7 @@ class SignUpView extends StatelessWidget {
                       bottom: true,
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            left: 20, right: 20, bottom: 10),
+                            left: 20, right: 20, bottom: 20),
                         child: AuthButton(
                           onTap: () {
                             debugPrint('sign up not success');

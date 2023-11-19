@@ -33,7 +33,7 @@ class _AppAppBarState extends State<AppAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: widget.backColor,
-      leadingWidth: 60,
+      leadingWidth: 80,
       elevation: 0,
       scrolledUnderElevation: 0,
       leading: widget.isHome
