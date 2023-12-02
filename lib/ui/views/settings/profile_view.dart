@@ -22,12 +22,15 @@ class ProfileView extends StatelessWidget {
     return Scaffold(
         backgroundColor: AppColors.whiteNavy,
         appBar: AppAppBar(
-            backColor: AppColors.whiteNavy,
-            appBarTitle: '',
-            isHome: false,
-            isSettings: false,
-            showBackButton: true,
-            showProfile: () {}),
+          backColor: AppColors.whiteNavy,
+          appBarTitle: AppStrings.profile,
+          isHome: false,
+          isSettings: false,
+          showBackButton: true,
+          showProfile: () {},
+          showMoreButton: true,
+          onTapMore: () {},
+        ),
         body: Column(
           children: [
             Stack(

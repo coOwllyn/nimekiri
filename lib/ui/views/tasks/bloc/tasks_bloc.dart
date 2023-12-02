@@ -3,7 +3,7 @@ import 'dart:ffi';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:todo_bloc/ui/views/todo/models/task.dart';
+import 'package:todo_bloc/domain/models/task.dart';
 
 part 'tasks_event.dart';
 part 'tasks_state.dart';

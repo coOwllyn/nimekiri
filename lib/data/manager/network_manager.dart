@@ -6,6 +6,8 @@ abstract class NetworkManager {
   Future<User> signUpWithEmailAndPassword(
       String email, String password, String userName);
 
+  Future<void> updateAccountInfoUser(String userId, Map<String, dynamic> user);
+
   Future<void> signOut();
   Future<void> sendPasswordResetEmail(String email);
 }

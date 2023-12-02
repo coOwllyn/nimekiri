@@ -8,8 +8,8 @@ import 'package:todo_bloc/ui/views/calendar/calendar_view.dart';
 import 'package:todo_bloc/ui/views/home/home_view.dart';
 import 'package:todo_bloc/ui/views/settings/profile_view.dart';
 import 'package:todo_bloc/ui/views/settings/settings_view.dart';
-import 'package:todo_bloc/ui/views/todo/new_todo_view.dart';
-import 'package:todo_bloc/ui/views/todo/todo_view.dart';
+import 'package:todo_bloc/ui/views/tasks/new_task_view.dart';
+import 'package:todo_bloc/ui/views/tasks/tasks_view.dart';
 
 class AppRoutes {
   static const String rotesContainerRoute = "/rotesContainer";
@@ -37,33 +37,33 @@ class RouteGenerator {
     switch (routeSettings.name) {
       // welcome
       case AppRoutes.splashRoute:
-        return MaterialPageRoute(builder: (_) => SplashView());
+        return MaterialPageRoute(builder: (_) => const SplashView());
       case AppRoutes.welcomeRoute:
-        return MaterialPageRoute(builder: (_) => WelcomeView());
+        return MaterialPageRoute(builder: (_) => const WelcomeView());
 
       // auth
       case AppRoutes.signUpRoute:
-        return MaterialPageRoute(builder: (_) => SignUpView());
+        return MaterialPageRoute(builder: (_) => const SignUpView());
       case AppRoutes.loginRoute:
-        return MaterialPageRoute(builder: (_) => LoginView());
+        return MaterialPageRoute(builder: (_) => const LoginView());
 
       // home
       case AppRoutes.homeRoute:
-        return MaterialPageRoute(builder: (_) => HomeView());
+        return MaterialPageRoute(builder: (_) => const HomeView());
 
       // to do
       case AppRoutes.todoRoute:
-        return MaterialPageRoute(builder: (_) => TodoView());
+        return MaterialPageRoute(builder: (_) => const TasksView());
       case AppRoutes.newTodoRoute:
-        return MaterialPageRoute(builder: (_) => NewTodoView());
+        return MaterialPageRoute(builder: (_) => const NewTaskView());
 
       // calendar
       case AppRoutes.calendarRoute:
-        return MaterialPageRoute(builder: (_) => CalendarView());
+        return MaterialPageRoute(builder: (_) => const CalendarView());
 
       // settings
       case AppRoutes.settingsRoute:
-        return MaterialPageRoute(builder: (_) => SettingsView());
+        return MaterialPageRoute(builder: (_) => const SettingsView());
       case AppRoutes.profileRoute:
         return MaterialPageRoute(builder: (_) => ProfileView());
 

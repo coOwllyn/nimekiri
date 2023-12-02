@@ -8,7 +8,7 @@ import 'package:todo_bloc/ui/views/home/home_view.dart';
 import 'package:todo_bloc/ui/views/home/widgets/bottom_nav_bar.dart';
 import 'package:todo_bloc/ui/views/messages/messages_view.dart';
 import 'package:todo_bloc/ui/views/settings/settings_view.dart';
-import 'package:todo_bloc/ui/views/todo/todo_view.dart';
+import 'package:todo_bloc/ui/views/tasks/tasks_view.dart';
 
 class RoutesContainer extends StatefulWidget {
   const RoutesContainer({super.key});
@@ -27,7 +27,7 @@ class RoutesContainer extends StatefulWidget {
 class _RoutesContainerState extends State<RoutesContainer> {
   final List routes = [
     const HomeView(),
-    const TodoView(),
+    const TasksView(),
     const MessagesView(),
     const CalendarView(),
     const SettingsView(),

@@ -11,7 +11,9 @@ class AppAppBar extends StatefulWidget implements PreferredSizeWidget {
     required this.isHome,
     required this.isSettings,
     required this.showBackButton,
+    required this.showMoreButton,
     required this.showProfile,
+    required this.onTapMore,
   }) : preferredSize = Size.fromHeight(kToolbarHeight);
 
   final Color backColor;
@@ -19,7 +21,9 @@ class AppAppBar extends StatefulWidget implements PreferredSizeWidget {
   final bool isHome;
   final bool isSettings;
   final bool showBackButton;
+  final bool showMoreButton;
   final Function() showProfile;
+  final Function() onTapMore;
 
   @override
   final Size preferredSize;
@@ -33,7 +37,7 @@ class _AppAppBarState extends State<AppAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: widget.backColor,
-      leadingWidth: 80,
+      leadingWidth: 70,
       elevation: 0,
       scrolledUnderElevation: 0,
       leading: widget.isHome
@@ -55,7 +59,7 @@ class _AppAppBarState extends State<AppAppBar> {
                   },
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStatePropertyAll(AppColors.lightNavy),
+                          MaterialStatePropertyAll(AppColors.whiteNavy),
                       shape: const MaterialStatePropertyAll(
                           RoundedRectangleBorder(
                               borderRadius:
@@ -106,7 +110,25 @@ class _AppAppBarState extends State<AppAppBar> {
                       ),
                     ),
                   )
-                : SizedBox()
+                : widget.showMoreButton
+                    ? InkWell(
+                        onTap: () {
+                          widget.onTapMore();
+                        },
+                        child: Container(
+                            height: 40,
+                            width: 40,
+                            margin: const EdgeInsets.only(right: 15),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.whiteNavy,
+                            ),
+                            child: Icon(
+                              Icons.more_vert_outlined,
+                              color: AppColors.primaryNavy,
+                            )),
+                      )
+                    : SizedBox()
       ],
     );
   }

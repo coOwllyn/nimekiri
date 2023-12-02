@@ -24,6 +24,7 @@ class NetworkManagerImpl implements NetworkManager {
   }
 
   static const tokenKey = 'AIzaSyD2__TenHnUudbWZ6DA4g00W7uYODU6UR8';
+  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
   @override
   Future<User> logInWithEmailAndPassword(String email, String password) async {
@@ -31,17 +32,16 @@ class NetworkManagerImpl implements NetworkManager {
         .signInWithEmailAndPassword(email: email, password: password);
     var userId = FirebaseAuth.instance.currentUser?.uid;
     if (userId != null) {
-      final userDoc = await FirebaseFirestore.instance
+      final userDoc = await _firebaseFirestore
           .collection('users')
           .where("id", isEqualTo: userId)
           .get();
-      final userData = userDoc.docs.first.data();
-      if (userData != null) {
-        var user = User.fromMap(userData);
-        return user;
-      } else {
-        throw Exception('Error signing in with email and password');
+      if (userDoc.size == 0) {
+        throw Exception('User not found');
       }
+      final userData = userDoc.docs.first.data();
+      var user = User.fromMap(userData);
+      return user;
     } else {
       throw Exception('Error signing in with email and password');
     }
@@ -77,6 +77,21 @@ class NetworkManagerImpl implements NetworkManager {
   }
 
   @override
+  Future<void> updateAccountInfoUser(
+      String userId, Map<String, dynamic> user) async {
+    try {
+      await _firebaseFirestore
+          .collection('users')
+          .doc(userId)
+          .set(user, SetOptions(merge: true));
+      debugPrint('Update user info successfully');
+    } catch (e) {
+      debugPrint('Error updating user info: $e');
+      rethrow;
+    }
+  }
+
+  @override
   Future<void> sendPasswordResetEmail(String email) {
     // TODO: implement sendPasswordResetEmail
     throw UnimplementedError();
@@ -100,10 +115,11 @@ class NetworkManagerImpl implements NetworkManager {
         token: accessToken,
       );
       final user = User(
-          userId: userCredentials.user?.uid,
-          email: userCredentials.user?.email,
-          userName: userName);
-      await FirebaseFirestore.instance
+        userId: userCredentials.user!.uid,
+        email: email,
+        userName: userName,
+      );
+      await _firebaseFirestore
           .collection("users")
           .doc(user.userId)
           .set(user.toMap());

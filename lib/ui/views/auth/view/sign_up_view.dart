@@ -37,6 +37,8 @@ class SignUpView extends StatelessWidget {
           showBackButton: true,
           isSettings: false,
           showProfile: () {},
+          showMoreButton: false,
+          onTapMore: () {},
         ),
         body: LayoutBuilder(builder: (context, constraint) {
           final Username username = context.watch<AuthBloc>().state.username;

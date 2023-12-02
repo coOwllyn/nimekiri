@@ -2,9 +2,8 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:sqflite/sqflite.dart';
+import 'package:todo_bloc/domain/models/task.dart';
 import 'dart:io' as io;
-
-import 'package:todo_bloc/ui/views/todo/models/task.dart';
 
 class DBHelper {
   static Database? _db;
@@ -62,6 +61,6 @@ class DBHelper {
   Future<int?> update(Task task) async {
     var dbClient = await db;
     return await dbClient?.update('my_task', task.toMap(),
-        where: 'id = ?', whereArgs: [task.id]);
+        where: 'id = ?', whereArgs: [task.taskId]);
   }
 }

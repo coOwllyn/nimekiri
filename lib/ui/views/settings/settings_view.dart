@@ -20,6 +20,8 @@ class SettingsView extends StatelessWidget {
         showProfile: () {
           Navigator.pushNamed(context, AppRoutes.profileRoute);
         },
+        showMoreButton: false,
+        onTapMore: () {},
       ),
       body: Column(
         children: [

@@ -1,5 +1,14 @@
 part of 'tasks_bloc.dart';
 
+enum TaskStatus {
+  initial,
+  loading,
+  failure,
+  active,
+  completed,
+  cancelled,
+}
+
 class TasksState extends Equatable {
   const TasksState({
     this.pendingTasks = const <Task>[],

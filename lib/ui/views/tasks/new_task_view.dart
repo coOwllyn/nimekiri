@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:todo_bloc/data/database/db_helper.dart';
+import 'package:todo_bloc/domain/models/task.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/debounce_manager.dart';
-import 'package:todo_bloc/ui/common/resources/guid_gen_manager.dart';
+import 'package:todo_bloc/ui/common/resources/font_manager.dart';
 import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/views/todo/bloc/tasks_bloc.dart';
-import 'package:todo_bloc/ui/views/todo/models/task.dart';
-import 'package:todo_bloc/ui/views/todo/widgets/add_button.dart';
-import 'package:todo_bloc/ui/views/todo/widgets/task_input.dart';
+import 'package:todo_bloc/ui/common/widgets/app_app_bar.dart';
+import 'package:todo_bloc/ui/views/tasks/bloc/tasks_bloc.dart';
+import 'package:todo_bloc/ui/views/tasks/widgets/add_button.dart';
+import 'package:todo_bloc/ui/views/tasks/widgets/task_input.dart';
 
-class NewTodoView extends StatefulWidget {
-  const NewTodoView({super.key});
+class NewTaskView extends StatefulWidget {
+  const NewTaskView({super.key});
 
   @override
-  State<NewTodoView> createState() => _NewTodoViewState();
+  State<NewTaskView> createState() => _NewTaskViewState();
 }
 
-class _NewTodoViewState extends State<NewTodoView> {
+class _NewTaskViewState extends State<NewTaskView> {
   TextEditingController titleController = TextEditingController();
   TextEditingController descController = TextEditingController();
   DebounceManager debounceManager =
@@ -64,32 +64,15 @@ class _NewTodoViewState extends State<NewTodoView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        title: const Text(AppStrings.createNewTodo),
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          splashColor: AppColors.primaryNavy.withOpacity(0.5),
-          splashRadius: 25,
-          icon: Icon(
-            Icons.arrow_back_ios_outlined,
-            color: AppColors.primaryNavy,
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            splashColor: AppColors.primaryNavy.withOpacity(0.5),
-            splashRadius: 25,
-            icon: Icon(
-              Icons.more_vert_outlined,
-              color: AppColors.primaryNavy,
-            ),
-          ),
-        ],
+      appBar: AppAppBar(
+        appBarTitle: AppStrings.createNewTodo,
+        backColor: AppColors.white,
+        isHome: false,
+        showBackButton: true,
+        isSettings: false,
+        showProfile: () {},
+        showMoreButton: true,
+        onTapMore: () {},
       ),
       body: BlocProvider(
         create: (context) => TasksBloc(),
@@ -105,10 +88,11 @@ class _NewTodoViewState extends State<NewTodoView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const SizedBox(height: 20),
                       Text(
                         AppStrings.todoTitle,
-                        style: getHeaderStyle(
-                            fontSize: 20, color: AppColors.black),
+                        style: getBodyStyle(
+                            color: AppColors.grey, fontSize: FontSize.s16),
                       ),
                       const SizedBox(height: 10),
                       TaskInput(
@@ -146,34 +130,34 @@ class _NewTodoViewState extends State<NewTodoView> {
                     overColor: AppColors.white.withOpacity(0.5),
                     borderColor: AppColors.primaryNavy,
                     onTap: () {
-                      if (_fromKey.currentState!.validate()) {
-                        debugPrint(titleController.text);
-                        debugPrint(descController.text);
-                        dbHelper!.insert(Task(
-                            id: GUIDGen.generate(),
-                            title: titleController.text,
-                            description: descController.text,
-                            date: DateFormat('dMy')
-                                .add_jm()
-                                .format(DateTime.now())
-                                .toString(),
-                            isFavorite: 0,
-                            isDeleted: 0,
-                            isDone: 0));
-                      }
-                      Task task = Task(
-                        id: GUIDGen.generate(),
-                        title: titleController.text,
-                        description: descController.text,
-                        date: DateTime.now().toString(),
-                      );
-                      context.read<TasksBloc>().add(AddTask(task: task));
-                      Navigator.pop(context);
-
-                      titleController.clear();
-                      descController.clear();
-
-                      print('add Task');
+                      // if (_fromKey.currentState!.validate()) {
+                      //   debugPrint(titleController.text);
+                      //   debugPrint(descController.text);
+                      //   dbHelper!.insert(Task(
+                      //       id: GUIDGen.generate(),
+                      //       title: titleController.text,
+                      //       description: descController.text,
+                      //       date: DateFormat('dMy')
+                      //           .add_jm()
+                      //           .format(DateTime.now())
+                      //           .toString(),
+                      //       isFavorite: 0,
+                      //       isDeleted: 0,
+                      //       isDone: 0));
+                      // }
+                      // Task task = Task(
+                      //   id: GUIDGen.generate(),
+                      //   title: titleController.text,
+                      //   description: descController.text,
+                      //   date: DateTime.now().toString(),
+                      // );
+                      // context.read<TasksBloc>().add(AddTask(task: task));
+                      // Navigator.pop(context);
+                      //
+                      // titleController.clear();
+                      // descController.clear();
+                      //
+                      // print('add Task');
                     },
                   ),
                 ),

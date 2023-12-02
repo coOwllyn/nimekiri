@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_bloc/data/database/db_helper.dart';
+import 'package:todo_bloc/domain/models/task.dart';
 import 'package:todo_bloc/ui/common/resources/color_manager.dart';
 import 'package:todo_bloc/ui/common/resources/image_manager.dart';
 import 'package:todo_bloc/ui/common/resources/strings_manager.dart';
 import 'package:todo_bloc/ui/common/resources/style_manager.dart';
-import 'package:todo_bloc/ui/views/todo/models/task.dart';
-import 'package:todo_bloc/ui/views/todo/widgets/task_tile.dart';
+import 'package:todo_bloc/ui/views/tasks/widgets/task_tile.dart';
 
-class TodoView extends StatefulWidget {
-  const TodoView({super.key});
+class TasksView extends StatefulWidget {
+  const TasksView({super.key});
 
   @override
-  State<TodoView> createState() => _TodoViewState();
+  State<TasksView> createState() => _TasksViewState();
 }
 
-class _TodoViewState extends State<TodoView> {
+class _TasksViewState extends State<TasksView> {
   DBHelper? dbHelper;
   late Future<List<Task>> dataList;
 
@@ -85,7 +85,7 @@ class _TodoViewState extends State<TodoView> {
                     shrinkWrap: true,
                     itemCount: snapshot.data?.length,
                     itemBuilder: (context, index) {
-                      String taskId = snapshot.data![index].id;
+                      String taskId = snapshot.data![index].taskId;
                       String taskTitle = snapshot.data![index].title;
                       String taskDesc = snapshot.data![index].description;
                       return TaskTile(

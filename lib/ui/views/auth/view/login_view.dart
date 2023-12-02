@@ -44,6 +44,8 @@ class LoginView extends StatelessWidget {
           showBackButton: true,
           isSettings: false,
           showProfile: () {},
+          showMoreButton: false,
+          onTapMore: () {},
         ),
         body: LayoutBuilder(builder: (context, constraint) {
           final Email email = context.watch<AuthBloc>().state.email;

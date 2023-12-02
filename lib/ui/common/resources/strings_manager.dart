@@ -31,11 +31,14 @@ class AppStrings {
   static const String calendarLabel = 'Calendar';
   static const String settingsLabel = 'Settings';
 
-  // home page
+  // home view
   static const String noRouteFound = 'No route found';
 
-  // to do page
-  static const String createNewTodo = 'Create Task';
+  static const String myProjects = 'My Projects';
+  static const String myTasks = 'My Tasks';
+
+  // to do view
+  static const String createNewTodo = 'Create New Task';
   static const String todoTitle = 'Task Title';
   static const String todoDesc = 'Description';
   static const String hintTitle = 'Enter task title';
@@ -45,16 +48,19 @@ class AppStrings {
   static const String taskList = 'Task List';
   static const String noTask = 'You  have not created any tasks yet.';
 
-  // calendar
+  // calendar view
   static const String weekDay = 'Sunday';
 
-  // Settings page
+  // settings view
   static const String settings = 'Settings';
   static const String jobTitle = 'Job Title';
   static const String location = 'Location';
   static const String logOut = 'Log Out';
   static const String cancel = 'Cancel';
   static const String logOutDesc = 'Are you sure you want to log out ?';
+
+  static const String profile = 'Profile';
+  //
 
   // error handler
   static const String badRequestError = 'bad_request_error';
